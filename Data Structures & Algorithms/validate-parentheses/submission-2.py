@@ -1,0 +1,51 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        bracketMap = {")": "(", "]": "[", "}": "{"}
+        stack = []
+
+        for c in s:
+            if c in '([{':
+                stack.append(c)
+            else:
+                if not stack or stack.pop() != bracketMap[c]:
+                    return False
+        
+        return not stack
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    """
+    OPTIMAL SOLUTION --------- (O(n) time and space complexity)
+    def isValid(self, s: str) -> bool:
+        bracketMap = {")": "(", "]": "[", "}": "{"}
+        stack = []
+
+        for c in s:
+            if c in '([{':
+                stack.append(c)
+            else:
+                if not stack or stack.pop() != bracketMap[c]:
+                    return False
+        
+        return not stack
+    """
+
+    """Neetcode soliution in the video 10:27 is essentially the same
+        except he uses peek operation before popping, but very minimal.
+
+        NOTE: for a stack, your key operations are 
+        append, pop and peeking.
+        Peeking is calling stack[-1], which is the top element in the stack.
+        but it doesn't remove it.
+    """
